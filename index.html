@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ViridIQ - Coming Soon</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background">
+        <div class="gradient-orb orb-1"></div>
+        <div class="gradient-orb orb-2"></div>
+        <div class="gradient-orb orb-3"></div>
+    </div>
+
+    <div class="container">
+        <div class="logo-container">
+            <h1 class="logo">ViridIQ</h1>
+            <div class="logo-accent"></div>
+        </div>
+
+        <div class="content">
+            <h2 class="coming-soon">Available for Outside IR35 GenAI Contracts</h2>
+            <p class="tagline">GenAI Engineer | LLM Specialist | Data Strategy Consultant</p>
+            
+            <div class="divider"></div>
+
+            <p class="description">
+                Experienced GenAI Engineer and Data Strategy Consultant available for outside IR35 
+                contract opportunities. Specialising in LLM development, GenAI deployment, MLOps, 
+                and translating AI solutions into business value.
+            </p>
+
+            <p class="description">
+                Proven expertise across climate tech, biotech, energy, and retail sectors. 
+                Cambridge-educated with track record of delivering for C-suite stakeholders.
+            </p>
+
+            <p class="description">
+                Open to strategic GenAI consulting contracts in London/UK.
+            </p>
+
+            <div class="email-signup">
+                <input 
+                    type="email" 
+                    placeholder="Your email address" 
+                    class="email-input"
+                    id="emailInput"
+                >
+                <button class="notify-btn" onclick="handleNotify()">Get in Touch</button>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/amsafari/" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="LinkedIn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 0H5C2.238 0 0 2.238 0 5V19C0 21.762 2.238 24 5 24H19C21.762 24 24 21.762 24 19V5C24 2.238 21.762 0 19 0ZM8 19H5V9H8V19ZM6.5 7.25C5.534 7.25 4.75 6.466 4.75 5.5C4.75 4.534 5.534 3.75 6.5 3.75C7.466 3.75 8.25 4.534 8.25 5.5C8.25 6.466 7.466 7.25 6.5 7.25ZM20 19H17V13.5C17 12.122 16.878 11 15.5 11C14.122 11 13 12.122 13 13.5V19H10V9H13V10.5C13.5 9.5 14.5 8.5 16 8.5C19 8.5 20 10.5 20 14V19Z" fill="currentColor"/>
+                    </svg>
+                </a>
+                <a href="mailto:ali@viridiq.com" class="social-link" aria-label="Email">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4C2.9 4 2.01 4.9 2.01 6L2 18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" fill="currentColor"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 ViridIQ. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS with your Public Key
+        (function(){
+            emailjs.init("UOmz5Ee_nE1CBzXTj");
+        })();
+
+        function handleNotify() {
+            const email = document.getElementById('emailInput').value;
+            
+            if (!email || !email.includes('@')) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            // Show loading state
+            const button = document.querySelector('.notify-btn');
+            const originalText = button.textContent;
+            button.textContent = 'Sending...';
+            button.disabled = true;
+
+            // Prepare email parameters
+            const templateParams = {
+                email: email,
+                date: new Date().toLocaleString('en-GB', { 
+                    day: '2-digit', 
+                    month: '2-digit', 
+                    year: 'numeric', 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                })
+            };
+
+            // Send email using EmailJS
+            emailjs.send('gandi_smtp', 'template_07i06di', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    alert('Thank you for your interest! I\'ll be in touch shortly with more details.');
+                    document.getElementById('emailInput').value = '';
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    alert('Sorry, something went wrong. Please try again.');
+                })
+                .finally(function() {
+                    // Reset button state
+                    button.textContent = originalText;
+                    button.disabled = false;
+                });
+        }
+
+        // Add animation to email input on focus
+        document.getElementById('emailInput').addEventListener('focus', function() {
+            this.parentElement.classList.add('focused');
+        });
+
+        document.getElementById('emailInput').addEventListener('blur', function() {
+            this.parentElement.classList.remove('focused');
+        });
+
+        // Handle Enter key on email input
+        document.getElementById('emailInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                handleNotify();
+            }
+        });
+    </script>
+</body>
+</html>
+
