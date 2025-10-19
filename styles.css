@@ -39,17 +39,176 @@ body {
     overflow: hidden;
 }
 
+/* Nuclear Atom Animation */
+.nuclear-atom {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+}
+
+.nucleus {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, var(--gold) 0%, var(--gold-dark) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 30px var(--gold), 0 0 60px rgba(255, 215, 0, 0.3);
+    animation: nucleusPulse 3s ease-in-out infinite;
+}
+
+@keyframes nucleusPulse {
+    0%, 100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0 0 30px var(--gold), 0 0 60px rgba(255, 215, 0, 0.3);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        box-shadow: 0 0 40px var(--gold), 0 0 80px rgba(255, 215, 0, 0.5);
+    }
+}
+
+.orbit {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid rgba(157, 78, 221, 0.2);
+    border-radius: 50%;
+    animation: orbitRotate 20s linear infinite;
+}
+
+.orbit-1 {
+    width: 120px;
+    height: 120px;
+    animation-duration: 45s;
+}
+
+.orbit-2 {
+    width: 200px;
+    height: 200px;
+    animation-duration: 75s;
+    animation-direction: reverse;
+}
+
+.orbit-3 {
+    width: 280px;
+    height: 280px;
+    animation-duration: 105s;
+}
+
+@keyframes orbitRotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.electron {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, var(--purple-light) 0%, var(--purple) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 15px var(--purple), 0 0 30px rgba(157, 78, 221, 0.4);
+    animation: electronOrbit 20s linear infinite;
+}
+
+.electron-1 {
+    top: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-duration: 45s;
+}
+
+.electron-2 {
+    top: -4px;
+    right: 0;
+    animation-duration: 75s;
+    animation-direction: reverse;
+}
+
+.electron-3 {
+    bottom: -4px;
+    left: 0;
+    animation-duration: 105s;
+}
+
+.electron-4 {
+    top: 50%;
+    right: -4px;
+    transform: translateY(-50%);
+    animation-duration: 60s;
+    animation-delay: -15s;
+}
+
+@keyframes electronOrbit {
+    0% {
+        transform: rotate(0deg) translateX(60px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(60px) rotate(-360deg);
+    }
+}
+
+.electron-2 {
+    animation-name: electronOrbit2;
+}
+
+@keyframes electronOrbit2 {
+    0% {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg) translateX(100px) rotate(360deg);
+    }
+}
+
+.electron-3 {
+    animation-name: electronOrbit3;
+}
+
+@keyframes electronOrbit3 {
+    0% {
+        transform: rotate(0deg) translateX(140px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(140px) rotate(-360deg);
+    }
+}
+
+.electron-4 {
+    animation-name: electronOrbit4;
+}
+
+@keyframes electronOrbit4 {
+    0% {
+        transform: rotate(0deg) translateX(100px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(100px) rotate(-360deg);
+    }
+}
+
+/* Keep some gradient orbs for depth */
 .gradient-orb {
     position: absolute;
     border-radius: 50%;
     filter: blur(80px);
-    opacity: 0.3;
+    opacity: 0.2;
     animation: float 20s ease-in-out infinite;
 }
 
 .orb-1 {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     background: radial-gradient(circle, var(--purple) 0%, transparent 70%);
     top: -200px;
     left: -200px;
@@ -57,22 +216,12 @@ body {
 }
 
 .orb-2 {
-    width: 400px;
-    height: 400px;
+    width: 300px;
+    height: 300px;
     background: radial-gradient(circle, var(--gold) 0%, transparent 70%);
     bottom: -150px;
     right: -150px;
     animation-delay: 5s;
-}
-
-.orb-3 {
-    width: 350px;
-    height: 350px;
-    background: radial-gradient(circle, var(--purple-dark) 0%, transparent 70%);
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    animation-delay: 10s;
 }
 
 @keyframes float {
@@ -100,6 +249,15 @@ body {
 /* Logo */
 .logo-container {
     margin-bottom: 3rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.logo-section {
     position: relative;
     display: inline-block;
 }
@@ -145,6 +303,159 @@ body {
     50% {
         opacity: 1;
         transform: translateX(-50%) scaleX(1.2);
+    }
+}
+
+/* Nuclear Atom Logo */
+.nuclear-atom-logo {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nucleus-logo {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background: radial-gradient(circle, var(--gold) 0%, var(--gold-dark) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 20px var(--gold), 0 0 40px rgba(255, 215, 0, 0.4);
+    animation: nucleusPulseLogo 3s ease-in-out infinite;
+    z-index: 10;
+}
+
+@keyframes nucleusPulseLogo {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px var(--gold), 0 0 40px rgba(255, 215, 0, 0.4);
+    }
+    50% {
+        transform: scale(1.3);
+        box-shadow: 0 0 25px var(--gold), 0 0 50px rgba(255, 215, 0, 0.6);
+    }
+}
+
+.orbit-logo {
+    position: absolute;
+    border: 1px solid rgba(157, 78, 221, 0.3);
+    border-radius: 50%;
+    animation: orbitRotateLogo 20s linear infinite;
+}
+
+.orbit-logo-1 {
+    width: 50px;
+    height: 50px;
+    animation-duration: 30s;
+}
+
+.orbit-logo-2 {
+    width: 80px;
+    height: 80px;
+    animation-duration: 50s;
+    animation-direction: reverse;
+}
+
+.orbit-logo-3 {
+    width: 110px;
+    height: 110px;
+    animation-duration: 70s;
+}
+
+@keyframes orbitRotateLogo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.electron-logo {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, var(--purple-light) 0%, var(--purple) 100%);
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--purple), 0 0 16px rgba(157, 78, 221, 0.5);
+    animation: electronOrbitLogo 20s linear infinite;
+}
+
+.electron-logo-1 {
+    top: -2px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-duration: 30s;
+}
+
+.electron-logo-2 {
+    top: -2px;
+    right: 0;
+    animation-duration: 50s;
+    animation-direction: reverse;
+}
+
+.electron-logo-3 {
+    bottom: -2px;
+    left: 0;
+    animation-duration: 70s;
+}
+
+.electron-logo-4 {
+    top: 50%;
+    right: -2px;
+    transform: translateY(-50%);
+    animation-duration: 40s;
+    animation-delay: -10s;
+}
+
+@keyframes electronOrbitLogo {
+    0% {
+        transform: rotate(0deg) translateX(25px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(25px) rotate(-360deg);
+    }
+}
+
+.electron-logo-2 {
+    animation-name: electronOrbitLogo2;
+}
+
+@keyframes electronOrbitLogo2 {
+    0% {
+        transform: rotate(0deg) translateX(40px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(-360deg) translateX(40px) rotate(360deg);
+    }
+}
+
+.electron-logo-3 {
+    animation-name: electronOrbitLogo3;
+}
+
+@keyframes electronOrbitLogo3 {
+    0% {
+        transform: rotate(0deg) translateX(55px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(55px) rotate(-360deg);
+    }
+}
+
+.electron-logo-4 {
+    animation-name: electronOrbitLogo4;
+}
+
+@keyframes electronOrbitLogo4 {
+    0% {
+        transform: rotate(0deg) translateX(40px) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(40px) rotate(-360deg);
     }
 }
 
@@ -317,6 +628,40 @@ body {
         font-size: 3rem;
     }
     
+    .logo-container {
+        gap: 1.5rem;
+    }
+    
+    .nuclear-atom-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .orbit-logo-1 {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .orbit-logo-2 {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .orbit-logo-3 {
+        width: 90px;
+        height: 90px;
+    }
+    
+    .nucleus-logo {
+        width: 10px;
+        height: 10px;
+    }
+    
+    .electron-logo {
+        width: 3px;
+        height: 3px;
+    }
+    
     .coming-soon {
         font-size: 2.5rem;
     }
@@ -341,14 +686,79 @@ body {
         width: 100%;
     }
     
-    .orb-1, .orb-2, .orb-3 {
+    .orb-1, .orb-2 {
         filter: blur(60px);
+    }
+    
+    .nuclear-atom {
+        width: 250px;
+        height: 250px;
+    }
+    
+    .orbit-1 {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .orbit-2 {
+        width: 160px;
+        height: 160px;
+    }
+    
+    .orbit-3 {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .nucleus {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .electron {
+        width: 6px;
+        height: 6px;
     }
 }
 
 @media (max-width: 480px) {
     .logo {
         font-size: 2.5rem;
+    }
+    
+    .logo-container {
+        gap: 1rem;
+        flex-direction: column;
+    }
+    
+    .nuclear-atom-logo {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .orbit-logo-1 {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .orbit-logo-2 {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .orbit-logo-3 {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .nucleus-logo {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .electron-logo {
+        width: 2px;
+        height: 2px;
     }
     
     .coming-soon {
@@ -361,6 +771,36 @@ body {
     
     .description {
         font-size: 0.9rem;
+    }
+    
+    .nuclear-atom {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .orbit-1 {
+        width: 80px;
+        height: 80px;
+    }
+    
+    .orbit-2 {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .orbit-3 {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .nucleus {
+        width: 14px;
+        height: 14px;
+    }
+    
+    .electron {
+        width: 5px;
+        height: 5px;
     }
 }
 

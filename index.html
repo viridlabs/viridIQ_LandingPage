@@ -11,45 +11,75 @@
 </head>
 <body>
     <div class="background">
+        <!-- Nuclear Atom Animation -->
+        <div class="nuclear-atom">
+            <div class="nucleus"></div>
+            <div class="orbit orbit-1">
+                <div class="electron electron-1"></div>
+            </div>
+            <div class="orbit orbit-2">
+                <div class="electron electron-2"></div>
+                <div class="electron electron-4"></div>
+            </div>
+            <div class="orbit orbit-3">
+                <div class="electron electron-3"></div>
+            </div>
+        </div>
+        <!-- Background gradient orbs -->
         <div class="gradient-orb orb-1"></div>
         <div class="gradient-orb orb-2"></div>
-        <div class="gradient-orb orb-3"></div>
     </div>
 
     <div class="container">
         <div class="logo-container">
-            <h1 class="logo">ViridIQ</h1>
-            <div class="logo-accent"></div>
+            <div class="logo-section">
+                <h1 class="logo">ViridIQ</h1>
+                <div class="logo-accent"></div>
+            </div>
+            <div class="nuclear-atom-logo">
+                <div class="nucleus-logo"></div>
+                <div class="orbit-logo orbit-logo-1">
+                    <div class="electron-logo electron-logo-1"></div>
+                </div>
+                <div class="orbit-logo orbit-logo-2">
+                    <div class="electron-logo electron-logo-2"></div>
+                    <div class="electron-logo electron-logo-4"></div>
+                </div>
+                <div class="orbit-logo orbit-logo-3">
+                    <div class="electron-logo electron-logo-3"></div>
+                </div>
+            </div>
         </div>
 
         <div class="content">
-            <h2 class="coming-soon">Available for Outside IR35 GenAI Contracts</h2>
-            <p class="tagline">GenAI Engineer | LLM Specialist | Data Strategy Consultant</p>
+            <h2 class="coming-soon">Principal Consultant | GenAI Engineer | Data Strategy</h2>
+            <p class="tagline">Strategic AI Solutions for C-Suite Stakeholders</p>
             
             <div class="divider"></div>
 
             <p class="description">
-                Experienced GenAI Engineer and Data Strategy Consultant. Specialised in LLM development, GenAI deployment, MLOps, 
-                and translating AI solutions into business value.
+                Cambridge-educated GenAI specialist delivering strategic AI/ML solutions to clients across climate tech, 
+                biotech, energy, and retail sectors. Proven track record with £100m+ AUM venture capital funds and 
+                Fortune 500 organisations.
             </p>
 
             <p class="description">
-                Proven expertise across climate tech, biotech, energy, and retail sectors. 
-                Cambridge-educated with track record of delivering for C-suite stakeholders.
+                Specialising in full-cycle GenAI deployment, LLM development, and translating complex technical 
+                solutions into strategic value for senior leadership teams.
             </p>
 
             <p class="description">
-                Open to strategic GenAI consulting contracts in London/UK.
+                Available for strategic AI consulting and advisory engagements.
             </p>
 
             <div class="email-signup">
                 <input 
                     type="email" 
-                    placeholder="Your email address" 
+                    placeholder="ali@viridiq.com" 
                     class="email-input"
                     id="emailInput"
                 >
-                <button class="notify-btn" onclick="handleNotify()">Get in Touch</button>
+                <button class="notify-btn" onclick="handleNotify()">Discuss Strategic Engagement</button>
             </div>
 
             <div class="social-links">
@@ -108,7 +138,7 @@
             emailjs.send('gandi_smtp', 'template_07i06di', templateParams)
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
-                    alert('Thank you for your interest! I\'ll be in touch shortly with more details.');
+                    alert('Thank you for your interest in a strategic engagement. I\'ll be in touch shortly to discuss your requirements.');
                     document.getElementById('emailInput').value = '';
                 }, function(error) {
                     console.log('FAILED...', error);
