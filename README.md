@@ -1,6 +1,6 @@
 # ViridIQ - Coming Soon Landing Page
 
-A beautiful, animated "coming soon" landing page for ViridIQ featuring a black, gold, and purple colour scheme.
+A beautiful, animated "coming soon" landing page for ViridIQ featuring a dark forest green and gold colour scheme.
 
 ## Features
 
@@ -82,9 +82,8 @@ Edit `styles.css` and modify the CSS variables at the top:
 
 ```css
 :root {
-    --black: #000000;
+    --dark-forest: #0d2818;
     --gold: #FFD700;
-    --purple: #9D4EDD;
     /* Add your custom colours here */
 }
 ```

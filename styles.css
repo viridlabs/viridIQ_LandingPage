@@ -5,9 +5,10 @@
 }
 
 :root {
+    --dark-forest: #0d2818;
+    --dark-forest-light: #142d20;
+    --dark-forest-lighter: #1a3d2a;
     --black: #000000;
-    --black-light: #0a0a0a;
-    --black-lighter: #1a1a1a;
     --gold: #FFD700;
     --gold-dark: #FFA500;
     --purple: #9D4EDD;
@@ -18,7 +19,7 @@
 
 body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    background: var(--black);
+    background: var(--dark-forest);
     color: var(--white);
     overflow-x: hidden;
     min-height: 100vh;
@@ -461,7 +462,7 @@ body {
 
 /* Content */
 .content {
-    background: rgba(10, 10, 10, 0.7);
+    background: rgba(13, 40, 24, 0.85);
     backdrop-filter: blur(20px);
     border: 1px solid rgba(255, 215, 0, 0.1);
     border-radius: 24px;
@@ -506,6 +507,38 @@ body {
     animation: expand 2s ease-in-out infinite;
 }
 
+.value-prop {
+    list-style: none;
+    margin: 0 auto 2.5rem;
+    max-width: 480px;
+    padding: 0;
+}
+
+.value-prop li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.value-prop li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5rem;
+    width: 6px;
+    height: 6px;
+    background: var(--gold);
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
+}
+
+.value-prop li:last-child {
+    margin-bottom: 0;
+}
+
 @keyframes expand {
     0%, 100% {
         width: 100px;
@@ -539,7 +572,7 @@ body {
     flex: 1;
     min-width: 250px;
     padding: 1rem 1.5rem;
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(26, 61, 42, 0.8);
     border: 2px solid rgba(255, 215, 0, 0.2);
     border-radius: 12px;
     color: var(--white);
@@ -555,7 +588,7 @@ body {
 .email-input:focus {
     border-color: var(--gold);
     box-shadow: 0 0 20px rgba(255, 215, 0, 0.2);
-    background: rgba(26, 26, 26, 1);
+    background: rgba(26, 61, 42, 1);
 }
 
 .email-signup.focused .email-input {
@@ -599,7 +632,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(26, 26, 26, 0.8);
+    background: rgba(26, 61, 42, 0.8);
     border: 2px solid rgba(255, 215, 0, 0.2);
     border-radius: 12px;
     color: var(--gold);
