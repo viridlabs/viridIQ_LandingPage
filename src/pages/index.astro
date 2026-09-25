@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Cta from '../components/Cta.astro';
+import { calendly } from '../data/site';
+
+const base = import.meta.env.BASE_URL;
+---
+
+<Layout
+  title="Home | ViridIQ — Strategic AI Consulting"
+  description="ViridIQ combines strategic AI advisory with production engineering. Cambridge-trained founder. 7+ years delivery across energy, PE, biotech, and government."
+>
+  <section class="hero">
+    <div class="shell">
+      <h1>Strategic AI. Engineered to Deliver.</h1>
+      <p class="lede">
+        ViridIQ combines human strategic intelligence with purpose-built AI systems to solve complex business problems — from problem framing through production deployment.
+      </p>
+      <div class="actions">
+        <a class="button" href={calendly}>Book a Discovery Call</a>
+        <a class="button ghost" href={`${base}work/`}>View Our Work</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="pill-band">
+    <ul class="pills shell" aria-label="Credentials">
+    <li>Cambridge</li>
+    <li>Innovate UK Adviser</li>
+    <li>7+ Years Production AI</li>
+    <li class="sector">Energy</li>
+    <li class="sector">Private Equity</li>
+    <li class="sector">Government</li>
+    </ul>
+  </div>
+
+  <section class="section">
+    <div class="shell">
+      <h2>What we do</h2>
+      <div class="grid three">
+        <article class="card">
+          <h3>AI Strategy & Advisory</h3>
+          <p>Translating business challenges into measurable AI-driven outcomes. From board-level strategy to technical architecture.</p>
+        </article>
+        <article class="card">
+          <h3>Production AI Engineering</h3>
+          <p>End-to-end ML/AI systems — personalisation engines, forecasting models, multi-agent platforms — built for production, not for demos.</p>
+        </article>
+        <article class="card">
+          <h3>Generative AI & Agentic Systems</h3>
+          <p>Multi-agent orchestration, RAG pipelines, and LLM integration — deployed responsibly at enterprise scale.</p>
+        </article>
+      </div>
+      <p class="closing">
+        ViridIQ combines human strategic intelligence with purpose-built AI systems. Every engagement is principal-led.
+      </p>
+    </div>
+  </section>
+
+  <Cta />
+</Layout>

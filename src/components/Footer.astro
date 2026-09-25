@@ -1,0 +1,27 @@
+---
+import { email, linkedin } from '../data/site';
+
+const base = import.meta.env.BASE_URL;
+const links = [
+  { href: base, label: 'Home' },
+  { href: `${base}work/`, label: 'Work' },
+  { href: `${base}about/`, label: 'About' },
+  { href: `${base}contact/`, label: 'Contact' },
+  { href: `${base}privacy/`, label: 'Privacy' },
+];
+---
+
+<footer class="site-footer">
+  <div class="shell">
+    <nav class="footer-links" aria-label="Footer">
+      {links.map((link) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+    <p class="muted">
+      <a href={`mailto:${email}`}>{email}</a>
+      {' · '}
+      <a href={linkedin}>LinkedIn</a>
+      {' · London, UK'}
+    </p>
+    <p class="muted">ViridIQ is a trading name of ViridIQ Ltd.</p>
+  </div>
+</footer>

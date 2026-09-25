@@ -1,0 +1,34 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { calendly, email, linkedin } from '../data/site';
+---
+
+<Layout
+  title="Contact | ViridIQ — Strategic AI Consulting"
+  description="Book a 30-minute discovery call with ViridIQ. Principal-led AI consultancy based in London. Limited engagements to ensure delivery quality."
+>
+  <section class="section">
+    <div class="shell">
+      <h1>Let's Talk</h1>
+      <p class="lede">
+        ViridIQ takes on a limited number of engagements to ensure principal-led delivery on every project. If you're facing a complex AI or data challenge, we'd welcome the conversation.
+      </p>
+      <div
+        class="calendly-inline-widget"
+        data-url={calendly}
+        style="min-width:320px;height:700px;"
+      >
+      </div>
+      <script is:inline src="https://assets.calendly.com/assets/external/widget.js" async></script>
+      <p>
+        <a href={calendly}>Open the booking page</a> if the calendar does not appear.
+      </p>
+      <p class="muted">
+        <a href={`mailto:${email}`}>{email}</a>
+        {' · '}
+        <a href={linkedin}>LinkedIn</a>
+        {' · London, UK'}
+      </p>
+    </div>
+  </section>
+</Layout>

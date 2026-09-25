@@ -1,0 +1,165 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Cta from '../components/Cta.astro';
+
+const base = import.meta.env.BASE_URL;
+const studies = [
+  {
+    id: 'security',
+    sector: 'Security & Intelligence',
+    client: 'A global security and intelligence business',
+    result: 'Distinct customer segments identified across European markets — 50% reduction in platform operating costs',
+  },
+  {
+    id: 'proptech',
+    sector: 'PropTech / Real Estate',
+    client: 'A property technology venture',
+    result: '85% reduction in due diligence time per site — accelerating the land acquisition pipeline',
+  },
+  {
+    id: 'energy',
+    sector: 'Energy & Utilities',
+    client: 'An energy technology company',
+    result: '85-90% demand forecasting accuracy — enabling proactive energy portfolio decisions',
+  },
+  {
+    id: 'recruitment',
+    sector: 'Recruitment / HR Tech',
+    client: 'A talent technology platform',
+    result: '75% reduction in screening time — 40% improvement in placement accuracy, enabling scale without proportional headcount',
+  },
+];
+---
+
+<Layout
+  title="Work | ViridIQ — Strategic AI Consulting"
+  description="Production AI case studies across security, PropTech, energy, and recruitment. Measurable business outcomes — 50% cost reduction, 85% faster due diligence, 90% forecasting accuracy."
+>
+  <section class="section">
+    <div class="shell">
+      <h1>Our Work</h1>
+      <p class="lede">Production AI systems that move the P&L. Every engagement is principal-led.</p>
+      <div class="grid two">
+        {
+          studies.map((study) => (
+            <a class="card" href={`${base}work/#${study.id}`}>
+              <p class="kicker">{study.sector}</p>
+              <h3>{study.client}</h3>
+              <p>{study.result}</p>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <article class="detail" id="security">
+        <p class="kicker">Security & Intelligence</p>
+        <h2>Customer Analytics & Personalisation NLP Pipeline</h2>
+        <p>A global security and intelligence business</p>
+        <h3>The challenge</h3>
+        <p>A global security business needed to enrich their single customer view by analysing multi-language customer interactions — call transcripts, chat logs, and voice transcripts — across European markets. The goal: data-driven customer segmentation and personalised service strategies.</p>
+        <h3>The approach</h3>
+        <p>ViridIQ built an end-to-end customer analytics pipeline combining multilingual NLP with unsupervised learning. BERTopic workflows with HDBSCAN clustering and UMAP dimensionality reduction identified distinct customer segments from interaction patterns and sentiment. The system processed GB-scale datasets with memory-optimised chunked processing.</p>
+        <h3>What we built</h3>
+        <ul>
+          <li>BERTopic-based customer segmentation with hierarchical topic structures</li>
+          <li>Multilingual embedding pipeline (sentence-transformers) with GPU/CPU auto-detection</li>
+          <li>Azure OpenAI integration (GPT-4o-mini) for translation and topic hierarchy generation — 50% API cost reduction through intelligent batching</li>
+          <li>YAML-driven configuration architecture for rapid experimentation without code changes</li>
+          <li>Azure ADLS Gen2 deployment with Key Vault integration for production-grade security</li>
+        </ul>
+        <h3>The impact</h3>
+        <ul>
+          <li>Unlocked data-driven customer segmentation across European markets — enabling targeted CRM actions and personalised service strategies</li>
+          <li>Distinct customer segments identified from multilingual interaction data</li>
+          <li>50% reduction in platform operating costs through intelligent batching</li>
+          <li>GB+ datasets processed with memory-optimised pipeline</li>
+          <li>Config-driven architecture enabling rapid experimentation cycles</li>
+        </ul>
+        <p class="tech">Python · BERTopic · HDBSCAN · UMAP · sentence-transformers · Azure OpenAI · Azure ADLS Gen2 · Azure Key Vault</p>
+      </article>
+
+      <article class="detail" id="proptech">
+        <p class="kicker">PropTech / Real Estate</p>
+        <h2>Multi-Agent AI Platform for Property Due Diligence</h2>
+        <p>A property technology venture</p>
+        <h3>The challenge</h3>
+        <p>A PropTech startup needed to automate property development due diligence workflows — legal analysis, planning compliance, flood risk, and protected land assessment — consuming weeks of manual work per site.</p>
+        <h3>The approach</h3>
+        <p>ViridIQ designed and built a production-ready multi-agent AI orchestration platform using LangGraph. Seven specialised AI agents were created, each handling a distinct aspect of due diligence, coordinated through a state-machine architecture with conditional branching and early-stopping logic.</p>
+        <h3>What we built</h3>
+        <ul>
+          <li>7 specialised AI agents (Legal Due Diligence, Planning & Regulatory, Flood Risk, Protected Land Analysis, and more)</li>
+          <li>LangGraph state-machine orchestration with gate-based workflows</li>
+          <li>Memory-efficient chunked processing for GB+ spatial datasets (90% memory reduction)</li>
+          <li>Integration with government data sources (Historic England, Environment Agency, Natural England — 400K+ spatial features)</li>
+          <li>Optimised Parquet storage achieving 67% file size reduction and 5-10x faster queries</li>
+        </ul>
+        <h3>The impact</h3>
+        <ul>
+          <li>Automated the entire property due diligence workflow — from weeks of manual work to hours per site</li>
+          <li>85% reduction in manual analysis time per site</li>
+          <li>90% reduction in memory footprint for large-scale spatial processing</li>
+          <li>60% code duplication reduction through modular architecture</li>
+        </ul>
+        <p class="tech">Python · LangGraph · LangChain · GeoPandas · Parquet · YAML</p>
+      </article>
+
+      <article class="detail" id="energy">
+        <p class="kicker">Energy & Utilities</p>
+        <h2>Energy Consumption Optimisation & Forecasting Platform</h2>
+        <p>An energy technology company</p>
+        <h3>The challenge</h3>
+        <p>An energy startup needed to process terabytes of consumption data to build predictive models for energy usage optimisation — moving from reactive monitoring to proactive, AI-driven decision-making.</p>
+        <h3>The approach</h3>
+        <p>ViridIQ architected ML pipelines on Azure Databricks using a Bronze-Silver-Gold medallion architecture. Time-series forecasting models (LSTM, ARIMA) predicted consumption patterns, with InfluxDB for real-time data management and Spark-based feature engineering at scale.</p>
+        <h3>What we built</h3>
+        <ul>
+          <li>Full medallion architecture (Bronze-Silver-Gold) on Azure Databricks with Delta Lake</li>
+          <li>Time-series forecasting models (TensorFlow LSTM, ARIMA) for consumption prediction</li>
+          <li>InfluxDB integration for real-time energy data management</li>
+          <li>MLflow model registry with experiment tracking</li>
+          <li>Multi-GPU distributed training on Databricks clusters</li>
+        </ul>
+        <h3>The impact</h3>
+        <ul>
+          <li>Moved the business from reactive monitoring to proactive, AI-driven energy management decisions</li>
+          <li>85-90% forecasting accuracy on energy demand prediction</li>
+          <li>60% reduction in data processing time</li>
+          <li>40% reduction in model training time via distributed GPU computing</li>
+        </ul>
+        <p class="tech">Python · TensorFlow · PyTorch · Azure Databricks · Delta Lake · MLflow · InfluxDB · PySpark</p>
+      </article>
+
+      <article class="detail" id="recruitment">
+        <p class="kicker">Recruitment / HR Tech</p>
+        <h2>AI-Powered Personalisation & Recommendation Engine</h2>
+        <p>A talent technology platform</p>
+        <h3>The challenge</h3>
+        <p>A talent platform needed to automate candidate-to-role matching — moving beyond keyword-based search to intelligent propensity scoring and personalised recommendations.</p>
+        <h3>The approach</h3>
+        <p>ViridIQ designed a personalised matching and recommendation system using FastAPI and LangGraph agent workflows. The system combined RAG retrieval, profile analysis, and preference matching with iterative A/B testing to continuously improve match quality.</p>
+        <h3>What we built</h3>
+        <ul>
+          <li>LangGraph multi-step recommendation workflows with state management and conditional branching</li>
+          <li>Propensity scoring and next-best-action engine for candidate-role matching</li>
+          <li>FastAPI RESTful APIs with async patterns for real-time recommendation serving</li>
+          <li>A/B evaluation framework measuring match accuracy, conversion rate, and engagement quality</li>
+          <li>Docker multi-stage containerisation deployed on Azure Kubernetes Service (AKS)</li>
+        </ul>
+        <h3>The impact</h3>
+        <ul>
+          <li>Enabled the platform to scale candidate matching without proportional headcount growth</li>
+          <li>75% reduction in manual screening time</li>
+          <li>40% improvement in placement accuracy through continuous model optimisation</li>
+        </ul>
+        <p class="tech">Python · FastAPI · LangGraph · Docker · AKS · GitHub Actions · Pydantic</p>
+      </article>
+    </div>
+  </section>
+
+  <Cta />
+</Layout>
